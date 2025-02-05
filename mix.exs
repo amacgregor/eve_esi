@@ -8,10 +8,23 @@ defmodule EveESI.Mixfile do
       elixir: "~> 1.10",
       build_embedded: Mix.env() == :prod,
       start_permanent: Mix.env() == :prod,
-      package: package(),
-      description: """
-      An OpenAPI for EVE Online
-      """,
+      # Hex package metadata:
+      description: "A generated API client for EVE Online's ESI.",
+      package: [
+        maintainers: ["Allan MacGregor"],
+        licenses: ["MIT"],
+        links: %{
+          "GitHub" => "https://github.com/amacgregor/eve_esi"
+        }
+      ],
+      # Docs configuration:
+      name: "EveESI",
+      source_url: "https://github.com/amacgregor/eve_esi",
+      homepage_url: "https://github.com/amacgregor/eve_esi",
+      docs: [
+        main: "readme", # The main page in the docs
+        extras: ["README.md"]
+      ],
       deps: deps()
     ]
   end
@@ -42,10 +55,4 @@ defmodule EveESI.Mixfile do
     ]
   end
 
-   defp package do
-      [
-        name: "eve_esi",
-        files: ~w(.formatter.exs config lib mix.exs README* LICENSE*),
-      ]
-  end
 end
